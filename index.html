@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-      <title>Harvard Art Museums Galleries</title>
-      <link href="styles.css" rel="stylesheet" />
-      <script src="index.js"></script>
-    </head>
+  <head>
+    <title>Harvard Art Museums Galleries</title> 
+    <link href="styles.css" rel="stylesheet" />
+    <script src="index.js"></script>
+  </head>
   <body>
-    <h1>Harvard Art Museums</h1>
+    <h1 class="header">
+      Harvard Art Museums
+    </h1>
     <div id="all-galleries">
       <h2>Galleries</h2>
-      <ul id="galleries">
-      </ul>
+      <ul id="galleries"></ul>
     </div>
-    <div id="all-objects" style="display:none">
-      <h2>Objects: TODO</h2>
+    <div id="button1">
+    </div>
+    <div id="all-objects">
+      <h2>Objects: </h2>
+      <table id="myTable" cellpadding="2" cellspacing="2" border="1"></table>
+    </div>
+    <div id="button2">
+      <button type="button" name="toObjects">Back to All Objects</button>
+    </div>
+    <div id="object"></div>
+    <div class="footer">
+      <p>Harvard Art Museum gallery lookup - connected through Art Museam API</p>
     </div>
   </body>
 </html>
