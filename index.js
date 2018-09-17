@@ -1,5 +1,8 @@
 const API_KEY = "743ce3f0-b77e-11e8-bf0e-e9322ccde4db";
 
+// used to shorten code so that it is more readable and less thatn 80 chars
+const globalUrl = `https://api.harvardartmuseums.org/`
+
 const showGalleries = (url) => {
   fetch(url)
     .then(response => response.json())
@@ -11,7 +14,7 @@ const showGalleries = (url) => {
       document.querySelector("#button1").style.display = "none";
       document.querySelector("#button2").style.display = "none";
       data.records.forEach(gallery => {
-        const url = `https://api.harvardartmuseums.org/object?apikey=${API_KEY}&gallery=${gallery.id}`
+        const url = `${globalUrl}object?apikey=${API_KEY}&gallery=${gallery.id}`
         document.querySelector("#galleries").innerHTML += `
           <li>
             <a href="#${gallery.id}" onclick="showObjectsTable('${url}')">
@@ -71,7 +74,7 @@ const showObjectsTable = (url) => {
 };
 
 const showObject = (number) => {
-  const url = `https://api.harvardartmuseums.org/object?apikey=${API_KEY}&objectnumber=${number}`;
+  const url = `${globalUrl}object?apikey=${API_KEY}&objectnumber=${number}`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -112,8 +115,8 @@ const toObjects = () => {
 document.addEventListener("DOMContentLoaded", () => {
   const hash = document.location.hash.split('#')[1];
   console.log('hash', hash)
-  if (hash == '' || hash == 'galleries?') {
-    const url = `https://api.harvardartmuseums.org/gallery?apikey=${API_KEY}`;
+  if (hash == '' || hash == 'galleries?' || hash == null) {
+    const url = `${globalUrl}gallery?apikey=${API_KEY}`;
     showGalleries(url);
   }
   // if has & then gallery is before & and object id is after 
@@ -121,10 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const [galleryId, objectId]  = hash.split('&');
     showObject(objectId);
   }
-  // when there is no &, and there is a numeber, there is just a gallery
+  // when there is no &, and there is a number, there is just a gallery
   else {
     const galleryId = hash;
-    const url = `https://api.harvardartmuseums.org/object?apikey=${API_KEY}&gallery=${galleryId}`
+    const url = `${globalUrl}object?apikey=${API_KEY}&gallery=${galleryId}`
     showObjectsTable(url);
   }
 });
