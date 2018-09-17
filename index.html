@@ -14,17 +14,26 @@
       <h2>Galleries</h2>
       <ul id="galleries"></ul>
     </div>
-    <div id="button1">
-      <button name="button1" type="button" onclick="toGallery()">Back to All Galleries</button>
-    </div>
     <div id="all-objects">
       <h2>Objects: </h2>
-      <table id="myTable" cellpadding="2" cellspacing="2" border="1"></table>
+      <table id="myTable" cellpadding="2" cellspacing="2" border="1">
+        <thead>
+          <th>Name</th>
+          <th>Image</th>
+          <th>People</th>
+          <td>Url</th>
+        </thead>
+      </table>
+      <div id="button1">
+        <button name="button1" type="button" id="button" onclick="toGallery()">Back to All Galleries</button>
+      </div>
+    </div>
+    <div id="object">
+      <h2>Object: </h2>
     </div>
     <div id="button2">
-      <button name="button2" type="button" onclick="toObjects()">Back to All Objects</button>
+      <button name="button2" type="button" id="button" onclick="toObjects()">Back to All Objects</button>
     </div>
-    <div id="object"></div>
     <div class="footer">
       <p>Harvard Art Museum gallery lookup - connected through Art Museam API</p>
     </div>
